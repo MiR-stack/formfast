@@ -104,10 +104,12 @@ function useForm({
     let newErrors: errorTypes = error;
 
     if (options.error && !init) {
+      const userValidation = validate ? validate(values) : {};
       Object.keys(error).forEach((name) => {
         newErrors = {
           ...newErrors,
           [name]: handleValidation({ name, defaultErrors, values }),
+          ...userValidation,
         };
       });
 
@@ -371,7 +373,7 @@ const initObjCreator = (initData: initDataTypes) => {
         initError[name || label] = "";
         defaultErrors[name || label] = {
           type: type || "text",
-          error: error || "this is required field",
+          error: error || "Please fill out this field",
         };
       }
     }
