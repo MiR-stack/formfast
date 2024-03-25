@@ -7,7 +7,7 @@ declare function useForm({ formSchema, options, onChange, onSubmit, validate, }:
     validate?: (values: valuesTypes) => errorTypes;
     onSubmit?: (values: valuesTypes) => void;
 }): {
-    data: newElementTypes[];
+    schema: newElementTypes[];
     error: errorTypes;
     values: {
         [x: string]: string | number | boolean;

@@ -50,7 +50,7 @@ export interface childrensTypes {
     [key: string]: elementTypes;
 }
 export interface formPropsType {
-    initData: newElementTypes[];
+    schema: newElementTypes[];
     onSubmit: (e: React.FormEvent) => void;
 }
 export interface valuesTypes {

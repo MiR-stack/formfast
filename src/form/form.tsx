@@ -2,10 +2,10 @@ import React from "react";
 import { formPropsType } from "../types";
 import Field from "./field";
 
-const Form: React.FC<formPropsType> = ({ initData, onSubmit }) => {
+const Form: React.FC<formPropsType> = ({ schema, onSubmit }) => {
   return (
     <form aria-label="formfast" onSubmit={onSubmit}>
-      {initData.map((element, index) => (
+      {schema.map((element, index) => (
         <Field {...element} key={index} />
       ))}
     </form>

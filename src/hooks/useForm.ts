@@ -137,7 +137,7 @@ function useForm({
     handlePassword,
   });
 
-  return { data, error, values, touched, onSubmit: handleSubmit };
+  return { schema: data, error, values, touched, onSubmit: handleSubmit };
 }
 
 export default useForm;
