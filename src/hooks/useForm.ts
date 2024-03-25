@@ -54,6 +54,8 @@ function useForm({
   ) => {
     const { value, name } = e.target;
 
+    console.log(value);
+
     const fieldChange = cb && cb(e);
     const fieldsChange = onChange && onChange(e);
 
@@ -75,7 +77,7 @@ function useForm({
 
     //update errors
 
-    if (init || touched[name]) {
+    if (options.error && defaultErrors[name] && (init || touched[name])) {
       const userValidation = validate ? validate(newValues) : {};
       setError({
         ...error,
@@ -208,7 +210,9 @@ const elementsModifier = ({
       let mainEl: newElementTypes = {
         ...data[label],
         className: `formfast-input ${className ? className : ""}`,
-        value: values[name || ""] as string | number,
+        id: id || label,
+        name: name || label,
+        value: values[name || label] as string | number,
         onChange: (
           e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
         ) => {
@@ -292,7 +296,7 @@ const elementsModifier = ({
         const labelEl = {
           el: "label",
           className: `${labelClass ? labelClass : ""}`,
-          htmlFor: id,
+          htmlFor: id || label,
           label,
         };
 
@@ -361,10 +365,15 @@ const initObjCreator = (initData: initDataTypes) => {
       (el === "input" || el === "select" || type === "radioGroup") &&
       type !== "radio"
     ) {
-      if (type === "checkbox") {
-        initValues[name || label] = checked || false;
-      } else {
-        initValues[name || label] = value || "";
+      switch (type) {
+        case "checkbox":
+          initValues[name || label] = checked || false;
+          break;
+        case "color":
+          initValues[name || label] = value || "#ffffff";
+          break;
+        default:
+          initValues[name || label] = value || "";
       }
 
       initTouched[name || label] = false;
