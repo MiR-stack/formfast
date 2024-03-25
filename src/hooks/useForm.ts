@@ -3,7 +3,7 @@ import {
   defaultErrorsTypes,
   elementTypes,
   errorTypes,
-  initDataTypes,
+  formSchemaTypes,
   newElementTypes,
   optionsTypes,
   valuesTypes,
@@ -13,13 +13,13 @@ import { handleValidation, isError } from "../utils";
 const initOptions = { error: true, label: true };
 
 function useForm({
-  initData,
+  formSchema,
   options = initOptions,
   onChange,
   onSubmit,
   validate,
 }: {
-  initData: initDataTypes;
+  formSchema: formSchemaTypes;
   options?: optionsTypes;
   onChange?: (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -38,7 +38,7 @@ function useForm({
 
   //create initial values
   let { initValues, initTouched, initError, defaultErrors } =
-    initObjCreator(initData);
+    initObjCreator(formSchema);
 
   const [init, setInit] = useState<boolean>(false);
   const [error, setError] = useState<errorTypes>({ ...initError });
@@ -126,7 +126,7 @@ function useForm({
   };
 
   const data = elementsModifier({
-    data: initData,
+    data: formSchema,
     options,
     error: error,
     touched,
@@ -155,7 +155,7 @@ const elementsModifier = ({
   handleTouched,
   handlePassword,
 }: {
-  data: initDataTypes;
+  data: formSchemaTypes;
   options: optionsTypes;
   error: errorTypes;
   values: valuesTypes;
@@ -192,7 +192,6 @@ const elementsModifier = ({
 
     if (!el) {
       data[label].el = "input";
-      console.log(el);
     }
 
     let newElement: newElementTypes = { ...data[label] };
@@ -357,15 +356,15 @@ const elementsModifier = ({
 };
 
 // init values creator
-const initObjCreator = (initData: initDataTypes) => {
+const initObjCreator = (formSchema: formSchemaTypes) => {
   let initValues: valuesTypes = {};
   let initTouched: valuesTypes = {};
   let initError: errorTypes = {};
   let defaultErrors: defaultErrorsTypes = {};
 
-  Object.keys(initData).forEach((label) => {
+  Object.keys(formSchema).forEach((label) => {
     const { childrens, el, type, name, checked, value, required, error } =
-      initData[label];
+      formSchema[label];
 
     if (
       (el === "input" || el === "select" || type === "radioGroup") &&

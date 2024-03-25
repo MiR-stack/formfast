@@ -56,7 +56,7 @@ export interface formPropsType {
 export interface valuesTypes {
     [key: string]: string | number | boolean;
 }
-export interface initDataTypes {
+export interface formSchemaTypes {
     [key: string]: elementTypes;
 }
 export interface optionsTypes {

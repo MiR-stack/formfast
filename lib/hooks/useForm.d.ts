@@ -1,7 +1,7 @@
 import React from "react";
-import { errorTypes, initDataTypes, newElementTypes, optionsTypes, valuesTypes } from "../types";
-declare function useForm({ initData, options, onChange, onSubmit, validate, }: {
-    initData: initDataTypes;
+import { errorTypes, formSchemaTypes, newElementTypes, optionsTypes, valuesTypes } from "../types";
+declare function useForm({ formSchema, options, onChange, onSubmit, validate, }: {
+    formSchema: formSchemaTypes;
     options?: optionsTypes;
     onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => valuesTypes;
     validate?: (values: valuesTypes) => errorTypes;
