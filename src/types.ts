@@ -1,7 +1,7 @@
 import React from "react";
 
 export interface elementTypes {
-  el: string;
+  el?: string;
   id?: string;
   className?: string;
   style?: React.CSSProperties;

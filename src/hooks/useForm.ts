@@ -190,6 +190,11 @@ const elementsModifier = ({
       wraperClass,
     } = data[label];
 
+    if (!el) {
+      data[label].el = "input";
+      console.log(el);
+    }
+
     let newElement: newElementTypes = { ...data[label] };
 
     if (type === "radioGroup") {
@@ -211,6 +216,7 @@ const elementsModifier = ({
         ...data[label],
         className: `formfast-input ${className ? className : ""}`,
         id: id || label,
+        type: type || "text",
         name: name || label,
         value: values[name || label] as string | number,
         onChange: (
