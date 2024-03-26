@@ -54,8 +54,6 @@ function useForm({
   ) => {
     const { value, name } = e.target;
 
-    console.log(value);
-
     const fieldChange = cb && cb(e);
     const fieldsChange = onChange && onChange(e);
 
