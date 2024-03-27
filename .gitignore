@@ -1,7 +1,12 @@
 
-/lib/form
-/lib/hooks
-/lib/utils
+lib/form
+lib/hooks
+lib/utils
+
+src
+
+rollup.config.js
+tsconfig.json
 
 /node_modules
 /.pnp

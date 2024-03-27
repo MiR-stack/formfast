@@ -1,6 +1,6 @@
 {
   "name": "formfast",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "Streamline your React development with this powerful npm package! It eliminates the need for manual form creation by intelligently converting your JavaScript objects into fully functional React forms.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
