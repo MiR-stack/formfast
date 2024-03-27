@@ -194,6 +194,7 @@ const elementsModifier = ({
       className,
       error: fieldError,
       errorClass,
+      inputErrorClass,
       labelClass,
       childrens,
       value,
@@ -298,7 +299,7 @@ const elementsModifier = ({
         if (error[name || label]) {
           mainEl.className = `  ${
             mainEl.className ? mainEl.className : ""
-          } formfast-error--input`;
+          } formfast-error--input ${inputErrorClass ? inputErrorClass : ""}`;
         }
 
         newElement = {

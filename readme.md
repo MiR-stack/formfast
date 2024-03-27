@@ -192,6 +192,8 @@ By default, Formfast automatically generates a section for each input element, c
 
 - **errorClass:** Use this property to define a class name for the error element displayed in case of validation errors.
 
+- **InputErrorClass:** Use this property to define a class name for the input element displayed in case of validation errors.
+
 ```
 
 password:{
@@ -199,6 +201,7 @@ password:{
     wraperClass:'your-class-name', // Add class name for wraper
     labelClass:'your-class-name', // Add class name for label
     errorClass:'your-class-name', // Add class name for error
+    inputErrorClass:'your-class-name', // Add class name for input in case of validation error
     type:'password'
 },
 

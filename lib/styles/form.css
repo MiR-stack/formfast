@@ -1,0 +1,57 @@
+.formfast-input {
+  padding: 10px 5px;
+  border: 1px solid black;
+}
+.formfast-input--wraper {
+  display: flex;
+  gap: 5px;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 10px;
+  flex-direction: column;
+}
+.formfast-input--wraper label {
+  text-transform: capitalize;
+}
+.formfast-input--password {
+  border: 1px solid black;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+}
+.formfast-input--password-input {
+  border: none;
+  outline: none;
+  padding: 10px 5px;
+}
+.formfast-input--password-icon {
+  display: flex;
+  padding-right: 5px;
+  cursor: pointer;
+}
+.formfast-input--radio {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.formfast-input--radio-wraper {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.formfast-select {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.formfast-error--input {
+  border: 1px solid red;
+}
+.formfast-error--text {
+  color: red;
+  margin: 0;
+  font-size: 0.8rem;
+}

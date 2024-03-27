@@ -1,6 +1,6 @@
 {
   "name": "formfast",
-  "version": "1.2.1",
+  "version": "1.2.0",
   "description": "Streamline your React development with this powerful npm package! It eliminates the need for manual form creation by intelligently converting your JavaScript objects into fully functional React forms.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -17,7 +17,9 @@
   ],
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
+    "buildStyles": "node ./src/scripts/styleBuilds.js",
     "dev": "yarn build --watch",
+    "devStyles": "nodemon --watch src --exec yarn buildStyles -e scss",
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)\""
   },
   "author": "md habibur rahman",
@@ -26,15 +28,17 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "react": "^18.2.0",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/jest": "^29.5.12",
     "@types/react": "^18.2.45",
+    "nodemon": "^3.1.0",
+    "react": "^18.2.0",
     "rollup": "^4.9.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-typescript2": "^0.36.0",
+    "sass": "^1.72.0",
     "typescript": "^5.3.3"
   }
 }

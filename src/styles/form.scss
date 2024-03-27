@@ -1,0 +1,59 @@
+@mixin flex($gap: 5px, $justify: flex-start, $align: center) {
+  display: flex;
+  gap: $gap;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+.formfast {
+  &-input {
+    padding: 10px 5px;
+    border: 1px solid black;
+  }
+  &-input--wraper {
+    @include flex(5px, center, flex-start);
+    margin-bottom: 10px;
+    flex-direction: column;
+
+    label {
+      text-transform: capitalize;
+    }
+  }
+  &-input--password {
+    border: 1px solid black;
+    @include flex;
+    width: fit-content;
+    &-input {
+      border: none;
+      outline: none;
+      padding: 10px 5px;
+    }
+
+    &-icon {
+      display: flex;
+      padding-right: 5px;
+      cursor: pointer;
+    }
+  }
+
+  &-input--radio {
+    @include flex(10px);
+    &-wraper {
+      @include flex;
+    }
+  }
+
+  &-select {
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+
+  &-error--input {
+    border: 1px solid red;
+  }
+  &-error--text {
+    color: red;
+    margin: 0;
+    font-size: 0.8rem;
+  }
+}

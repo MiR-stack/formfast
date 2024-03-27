@@ -25,6 +25,7 @@ export interface elementTypes {
   disabled?: boolean;
   divLabel?: boolean;
   formaction?: string;
+  inputErrorClass?: string;
   labelClass?: string;
   max?: number;
   maxlength?: number;
@@ -56,7 +57,11 @@ export interface childrensTypes {
   [key: string]: elementTypes;
 }
 
-export interface formPropsType {
+export interface formPropsType
+  extends React.DetailedHTMLProps<
+    React.FormHTMLAttributes<HTMLFormElement>,
+    HTMLFormElement
+  > {
   schema: newElementTypes[];
   onSubmit: (e: React.FormEvent) => void;
 }

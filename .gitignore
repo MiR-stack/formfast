@@ -1,9 +1,4 @@
 
-lib/form
-lib/hooks
-lib/utils
-
-src
 
 rollup.config.js
 tsconfig.json
