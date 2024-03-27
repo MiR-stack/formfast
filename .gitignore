@@ -1,4 +1,8 @@
 
+/lib/form
+/lib/hooks
+/lib/utils
+
 /node_modules
 /.pnp
 .pnp.js

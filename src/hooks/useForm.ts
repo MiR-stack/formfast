@@ -208,7 +208,7 @@ const elementsModifier = ({
     }
 
     // create customize input
-    if (el === "input" || el === "select") {
+    if (data[label].el === "input" || el === "select") {
       let mainEl: newElementTypes = {
         ...data[label],
         className: `formfast-input ${className ? className : ""}`,
@@ -365,7 +365,7 @@ const initObjCreator = (formSchema: formSchemaTypes) => {
       formSchema[label];
 
     if (
-      (el === "input" || el === "select" || type === "radioGroup") &&
+      (!el || el === "input" || el === "select" || type === "radioGroup") &&
       type !== "radio"
     ) {
       switch (type) {
