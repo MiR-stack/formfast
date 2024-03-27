@@ -22,7 +22,9 @@ function useForm({
   formSchema: formSchemaTypes;
   options?: optionsTypes;
   onChange?: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => valuesTypes;
   validate?: (values: valuesTypes) => errorTypes;
   onSubmit?: (values: valuesTypes) => void;
@@ -47,9 +49,13 @@ function useForm({
   const [values, setValues] = useState({ ...initValues });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
     cb?: (
-      e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+      e: React.ChangeEvent<
+        HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+      >
     ) => valuesTypes
   ) => {
     const { value, name } = e.target;
@@ -90,7 +96,9 @@ function useForm({
   const [touched, setTouched] = useState<valuesTypes>({ ...initTouched });
 
   const handleTouched = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     setTouched({ ...touched, [e.target.name]: true });
   };
@@ -160,13 +168,19 @@ const elementsModifier = ({
   touched: valuesTypes;
   password: boolean;
   handleChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
     cb?: (
-      e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+      e: React.ChangeEvent<
+        HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+      >
     ) => valuesTypes
   ) => void;
   handleTouched: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => void;
   handlePassword: () => void;
 }) => {
@@ -208,7 +222,7 @@ const elementsModifier = ({
     }
 
     // create customize input
-    if (data[label].el === "input" || el === "select") {
+    if (data[label].el === "input" || el === "textarea" || el === "select") {
       let mainEl: newElementTypes = {
         ...data[label],
         className: `formfast-input ${className ? className : ""}`,
@@ -217,7 +231,9 @@ const elementsModifier = ({
         name: name || label,
         value: values[name || label] as string | number,
         onChange: (
-          e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+          e: React.ChangeEvent<
+            HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+          >
         ) => {
           handleChange(e, data[label].handleChange);
         },
@@ -365,7 +381,11 @@ const initObjCreator = (formSchema: formSchemaTypes) => {
       formSchema[label];
 
     if (
-      (!el || el === "input" || el === "select" || type === "radioGroup") &&
+      (!el ||
+        el === "input" ||
+        el === "textarea" ||
+        el === "select" ||
+        type === "radioGroup") &&
       type !== "radio"
     ) {
       switch (type) {

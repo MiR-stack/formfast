@@ -3,7 +3,7 @@ import { errorTypes, formSchemaTypes, newElementTypes, optionsTypes, valuesTypes
 declare function useForm({ formSchema, options, onChange, onSubmit, validate, }: {
     formSchema: formSchemaTypes;
     options?: optionsTypes;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => valuesTypes;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => valuesTypes;
     validate?: (values: valuesTypes) => errorTypes;
     onSubmit?: (values: valuesTypes) => void;
 }): {

@@ -44,7 +44,7 @@ export interface elementTypes {
         };
     };
     childrens?: childrensTypes;
-    handleChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => valuesTypes;
+    handleChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => valuesTypes;
 }
 export interface childrensTypes {
     [key: string]: elementTypes;
@@ -70,8 +70,8 @@ export interface newElementTypes extends elementTypes {
         value?: string | number;
     }[];
     label?: string;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
-    onBlur?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => void;
+    onBlur?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => void;
     onClick?: () => void;
 }
 export interface defaultErrorsTypes {

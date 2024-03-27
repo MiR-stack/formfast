@@ -74,9 +74,10 @@ const Field: React.FC<newElementTypes> = ({
     }
   }
 
-  if (el === "input") {
+  if (el === "input" || el === "textarea") {
+    const Tag = el;
     return (
-      <input
+      <Tag
         id={id}
         className={className}
         style={style}

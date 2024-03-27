@@ -46,7 +46,9 @@ export interface elementTypes {
   };
   childrens?: childrensTypes;
   handleChange?: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => valuesTypes;
 }
 
@@ -80,9 +82,15 @@ export interface newElementTypes extends elementTypes {
   }[];
   label?: string;
   onChange?: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => void;
-  onBlur?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  onBlur?: (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => void;
   onClick?: () => void;
 }
 
